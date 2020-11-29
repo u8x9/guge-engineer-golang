@@ -1,3 +1,6 @@
+.DS_Store
+.vscode
+*.vim
 # Binaries for programs and plugins
 *.exe
 *.exe~
