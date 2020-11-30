@@ -45,7 +45,63 @@ func extend() {
 	fmt.Printf("s2 = %v, len(s2) = %d, cap(s2) = %d\n",
 		s2, len(s2), cap(s2))
 }
+func appendElem() {
+	arr := [...]int{0, 1, 2, 3, 4, 5, 6, 7}
+	s1 := arr[2:6]
+	s2 := s1[3:5]
+	s3 := append(s2, 10) // 10 替换了最后的 7
+	fmt.Printf("s3=%v, arr=%v\n", s3, arr)
+	s4 := append(s3, 11) // 新的底层数组
+	fmt.Printf("s4=%v, arr=%v\n", s4, arr)
+	s5 := append(s4, 12)
+	fmt.Printf("s5=%v, arr=%v\n", s5, arr)
+}
+func sliceInfo(s []int) {
+	fmt.Println("len(s) =", len(s), ", cap(s) =", cap(s), " ==>", s)
+}
+func sliceOps() {
+	fmt.Println(" -- create slice --- ")
+	var s []int
+	for i := 0; i < 100; i++ {
+		sliceInfo(s)
+		s = append(s, 2*i+1)
+	}
+
+	s1 := []int{2, 4, 6, 8}
+	sliceInfo(s1)
+
+	s2 := make([]int, 16)
+	sliceInfo(s2)
+
+	s3 := make([]int, 10, 32)
+	sliceInfo(s3)
+
+	fmt.Println(" -- copy slice --- ")
+	copy(s2, s1)
+	sliceInfo(s2)
+
+	fmt.Println(" -- delete slice element --")
+	// 删除 s2[3]
+	s2 = append(s2[:3], s2[4:]...)
+	sliceInfo(s2)
+
+	fmt.Println(" -- pop --")
+	front := s2[0]
+	s2 = s2[1:]
+	sliceInfo(s2)
+	fmt.Println("pop: ", front)
+
+	fmt.Println(" -- unshift --")
+	lastIdx := len(s2) - 1
+	tail := s2[lastIdx]
+	s2 = s2[:lastIdx]
+	sliceInfo(s2)
+	fmt.Println("unshift: ", tail)
+
+}
 func main() {
 	// basic()
-	extend()
+	// extend()
+	// appendElem()
+	sliceOps()
 }
