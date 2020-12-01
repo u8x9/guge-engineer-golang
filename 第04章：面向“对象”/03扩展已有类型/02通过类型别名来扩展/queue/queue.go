@@ -9,6 +9,9 @@ type Queue []int
 func (q *Queue) IsEmpty() bool {
 	return q == nil || *q == nil || len(*q) == 0
 }
+func (q *Queue) Push(i int) {
+	*q = append(*q, i)
+}
 func (q *Queue) Pop() (int, error) {
 	if q.IsEmpty() {
 		return 0, errors.New("empty queue")

@@ -30,9 +30,20 @@ func unshift(q queue.Queue) {
 
 func main() {
 	q := queue.Queue{1, 2, 3, 4, 5, 6, 7}
+	q.Push(8)
+	q.Push(9)
 	fmt.Println(q)
 
 	// pop(q)
-	unshift(q)
+	// unshift(q)
+
+	for !q.IsEmpty() {
+		header, err := q.Pop()
+		if err != nil {
+			fmt.Println(err)
+			continue
+		}
+		fmt.Println(q, header)
+	}
 
 }
