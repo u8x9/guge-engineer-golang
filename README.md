@@ -25,3 +25,9 @@
 + 除了 slice, map, function 之外的内置类型都可以作map的Key
 
 + 如果 struct 不包含上述类型的字段，也可以作为 key
+
+## 面向“对象”
+
++ go 语言只支持封装，不支持继承和多态
+
++ 没有 class, 只有 struct
