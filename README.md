@@ -69,3 +69,19 @@
 + 参数在defer语句时计算 
 
 + defer列表为后进先出
+
+### panic
+
++ 停止当前函数执行
+
++ 一直向上返回，执行每一层的 defer
+
++ 如果没有遇见 recover，程序退出
+
+### recover
+
++ 仅在 defer 调用中使用
+
++ 获取 panic 的值 
+
++ 如果无法处理，可重新 panic
