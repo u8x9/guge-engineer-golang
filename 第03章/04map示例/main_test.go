@@ -25,3 +25,12 @@ func TestLengthOfNonRepeatingSubString(t *testing.T) {
 		}
 	}
 }
+
+func BenchmarkLengthOfNonRepeatingSubString(b *testing.B) {
+	s, n := "一二三二一", 3
+	for i := 0; i < b.N; i++ {
+		if actual := lengthOfNonRepeatingSubString(s); actual != n {
+			b.Errorf("%q got %d, expected %d\n", s, actual, n)
+		}
+	}
+}
