@@ -45,6 +45,7 @@ func usingRequest() {
 
 	fmt.Println(string(buf))
 }
+
 func main() {
 	// basic()
 	usingRequest()
